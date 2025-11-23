@@ -25,14 +25,15 @@ docker run -it --rm \
 	--env="DISPLAY" \
 	--env="QT_X11_NO_MITSHM=1" \
 	--volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" --privileged \
-	--volume="/home/$user/turtlebot_ws:/root/Shared:rw" \
+	--volume="/home/$user/ros/ros2_ws/Planning_algorithm_ws/:/root/Shared:rw" \
 	--device=/dev/usb \
 	--device=/dev/video0 \
-	--gpus all \
 	--env="XAUTHORITY=$XAUTH" \
 	--volume="$XAUTH:$XAUTH" \
-	--env="NVIDIA_VISIBLE_DEVICES=all" \
-	--env="NVIDIA_DRIVER_CAPABILITIES=all" \
         --network=host \
 	rrt_star_tb3 \
 	bash
+
+	#--gpus all \
+	#--env="NVIDIA_VISIBLE_DEVICES=all" \
+	#--env="NVIDIA_DRIVER_CAPABILITIES=all" \
